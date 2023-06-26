@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>文件检索系统</title>
+</head>
+<body>
+<h1>文件检索系统</h1>
+<p>搜索结果如下：</p>
+<form method="post" action="/save">
+  {% for file in files %}
+    <input type="checkbox" name="file_id" value="{{ file.id }}">
+    <label>{{ file.path }}</label><br>
+  {% endfor %}
+  <input type="submit" value="保存并下载">
+</form>
+</body>
+</html>
