@@ -1,0 +1,26 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    文件检索系统
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="static/css/style.css">
+{% endblock %}
+
+{% block content %}
+    <div id="Base" class="row">
+        <h1 class="col-xs-12 col-md-8">文件检索系统</h1>
+
+        <form method="post" action="/search" id="FileSearch" class="col-xs-12 col-md-8">
+            <h4>请输入要搜索的关键字：</h4>
+            <input type="text" name="keyword" id="input" placeholder="例如：Python">
+            <input type="submit" class="btn btn-info" value="搜索">
+        </form>
+
+
+
+    </div>
+
+{% endblock%}
