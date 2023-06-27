@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>文件检索系统</title>
+  <script>
+    // 定义一个函数，用于监听用户选择文件夹的事件，并将文件夹的路径赋值给一个隐藏的表单字段
+    function selectDir() {
+      // 获取文件夹选择元素
+      var dir = document.getElementById("dir");
+
+      // 获取隐藏的表单字段元素
+      var path = document.getElementById("path");
+
+      // 获取用户选择的文件夹路径
+      var dirPath = dir.files[0].webkitRelativePath;
+
+      // 去除文件夹路径中的第一个文件名部分
+      var dirName = dirPath.split("/")[0];
+
+      // 将文件夹路径赋值给隐藏的表单字段
+      path.value = dirName;
+    }
+  </script>
+</head>
+<body>
+  <h1>文件检索系统</h1>
+  <p>请选择要查询的目录：</p>
+  <form method="post" action="/">
+    <!-- 添加一个onchange属性，用于调用selectDir函数 -->
+    <input type="file" name="dir" id="dir" webkitdirectory directory onchange="selectDir()">
+    <!-- 添加一个隐藏的表单字段，用于存储文件夹路径 -->
+    <input type="hidden" name="path" id="path">
+    <input type="submit" value="确定">
+  </form>
+</body>
+</html>
