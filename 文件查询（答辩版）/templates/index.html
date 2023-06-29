@@ -1,0 +1,26 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    文件检索系统
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="static/css/style.css">
+{% endblock %}
+
+{% block content %}
+    <div id="Base" class="row">
+        <h1 class="col-xs-12 col-md-8">文件检索系统</h1>
+
+        <form method="post" action="/" id="FileSelect" class="col-xs-12 col-md-8">
+            <h4>请选择要查询的目录：</h4>
+            <input type="submit" class="btn btn-primary" value="选择目录">
+        </form>
+    </div>
+
+{% endblock%}
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

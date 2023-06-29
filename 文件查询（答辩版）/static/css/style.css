@@ -1,0 +1,28 @@
+#Base{
+    padding: 25px;
+
+}
+
+#FileSelect{
+    margin-top: 25px;
+    display: flex;
+}
+
+#FileSearch{
+    margin-top: 25px;
+    display:flex;
+}
+
+#Result{
+    margin-top: 25px;
+    /*display:flex;*/
+    align-items: center;
+}
+
+.result{
+    flex-wrap:wrap;
+}
+
+#input{
+    margin-right: 10px;
+}
