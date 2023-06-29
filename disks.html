@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文件浏览器</title>
+    <style>
+        /* 设置样式 */
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin: 10px;
+        }
+
+        .disk {
+            display: inline-block;
+            padding: 10px;
+            background-color: lightblue;
+            border-radius: 5px;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>文件浏览器</h1>
+    <div id="container">
+        <!-- 使用循环来显示磁盘名称 -->
+        <ul>
+            {%- for disk in disks %}
+                <!-- 为每个磁盘添加一个超链接 -->
+                <li><a href="{{ url_for('files_path', path=disk) }}" class="disk">{{ disk }}</a></li>
+            {%- endfor %}
+        </ul>
+    </div>
+</body>
+</html>
