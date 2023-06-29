@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文件浏览器</title>
+    <style>
+        /* 设置样式 */
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin: 10px;
+        }
+
+        .folder {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>文件浏览器</h1>
+    <!-- 添加一个段落元素，显示路径参数的值 -->
+    <p>当前目录：{{ path }}</p>
+    <button class="confirm" onclick="window.location.href='{{ url_for('search', path=path) }}'">确认路径</button>
+    <div id="container">
+        <!-- 使用递归循环来显示文件树 -->
+        <ul>
+            {%- for item in tree.children recursive %}
+                <!-- 如果是目录，显示为超链接 -->
+                {% if os.path.isdir(item.name) %}
+                    <li class="folder"><a href="{{ url_for('files_path', path=item.name) }}">{{ os.path.basename(item.name) }}</a></li> <!-- 添加超链接 -->
+                {% endif %}
+            {%- endfor %}
+        </ul>
+    </div>
+</body>
+</html>
